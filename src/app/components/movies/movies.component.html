@@ -1,0 +1,52 @@
+<div class="body">
+
+    <div class="row" *ngIf="movies">
+        <div class="contenedor">
+            <img class="im" [src]="movies.backdrop_path | poster" [alt]="movies.title">
+            <div class="centrado text-white">{{movies.title}}</div>
+        </div>
+    </div>
+
+    <div class="row mt-3" *ngIf="movies">
+
+            <img class="image" [src]="movies.poster_path | poster" [alt]="movies.title">
+
+        <div class="col-md-6 text-white">
+            <h3>OverView:</h3>
+            <p>{{movies.overview}}</p>
+        </div>
+
+        <div class="col-md-6 text-white mt-2" >
+
+            Genre:
+                <span *ngFor="let movie of movies.genres"> {{movie.name}} </span>
+                &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+            Language:    
+                <span>  {{movies.original_language }}</span>
+                &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+            User Score: 
+                <span>{{ movies.vote_average | number:'1.1-1'}}</span>
+
+        </div>
+        <div class="row mt-3 text-white">
+            <div class="col-md-12">
+                Budget: 
+                    <span>{{movies.budget}}</span>  &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                Companies:    
+                    <span *ngFor="let movie of movies.production_companies">{{ movie.name }}</span> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                User Score: 
+                    <span>{{ movies.vote_average | number:'1.1-1'}}</span>
+            </div>
+        </div>
+
+    </div>
+
+   <div class="slider mt-5 text-white">
+        <div *ngFor="let cast of cast" clas="slider">                                           
+            <img [src]="cast.profile_path | poster " [alt]="cast.name" class="img" >
+            {{cast.name}}                           
+        </div>   
+   </div>
+
+
+</div>

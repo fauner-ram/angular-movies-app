@@ -1,0 +1,21 @@
+<div class="body">
+
+    <div class="content">
+        <img class="im" [src]="img" >
+        <div class="center text-white">BIENVENIDO A LA PRUEBA DE PELICULAS</div>
+    </div>
+
+    <div class="row text-white text-center mt-5">
+        <div class="col" *ngFor="let mov of movihome">
+            <img class="img" [src]="mov.poster_path | poster" [alt]="mov.title" (click)="onMovieClick(mov)">
+
+            <h6>{{mov.title}}</h6>
+            <p> Año {{ mov.release_date }}</p>
+        </div>                                       
+    </div>        
+
+    <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+        <button class="btn btn-primary me-md-2" type="button" (click)="more()"> load More </button>                   
+    </div>
+
+</div>
